@@ -74,7 +74,14 @@ client.on('message', message => {
                     // Return if there is an error
                     if (err) return console.log(err);
 
-                    message.channel.send(`The prefix has been updated!`);
+                    message.channel.send(new MessageEmbed()
+                    .setTitle('¡Succesfully Changed!')
+                    .setDescription(`The prefix has been changed succesfully.\nNow py prefix is ${newPrefix}`)
+                    .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true, format: "jpg", size: 2048 }))
+                    .setTimestamp()
+                    .setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 2048 }))
+                    .setColor("GREEN")
+);                   //A nice embed so that it is better decorated :)
                 });
 
         }
